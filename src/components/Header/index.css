@@ -1,0 +1,16 @@
+.header-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.btn-style {
+  border: 0px solid transparent;
+  height: 30px;
+  width: 150px;
+  border-radius: 5px;
+  background-color: blue;
+  color: #ffffff;
+  margin-top: 10px;
+  margin-right: 10px;
+}

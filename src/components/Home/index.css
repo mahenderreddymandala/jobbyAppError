@@ -1,0 +1,15 @@
+.home-section {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/home-lg-bg.png');
+  background-size: cover;
+  color: #ffffff;
+  height: 150vh;
+}
+
+.button-style {
+  height: 35px;
+  width: 280px;
+  border: 0px solid transparent;
+  background-color: blue;
+  border-radius: 8px;
+  color: #ffffff;
+}
