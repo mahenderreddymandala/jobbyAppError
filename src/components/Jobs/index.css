@@ -1,0 +1,111 @@
+@media (min-width: 768px) {
+  .profile-section {
+    background-image: url('https://assets.ccbp.in/frontend/react-js/profile-bg.png');
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+    margin: 10px;
+    padding-left: 20px;
+  }
+  .input-type {
+    display: none;
+  }
+  .background {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .job-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+  .search-input {
+    height: 35px;
+    width: 400px;
+    margin-left: 50px;
+  }
+
+  .list-item {
+    list-style-type: none;
+  }
+
+  .name {
+    font-size: 20px;
+    color: blue;
+  }
+  .paragraph {
+    font-size: 15px;
+    color: gray;
+  }
+
+  .heading-sub {
+    font-size: 20px;
+  }
+
+  .margin {
+    margin-top: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .profile-section {
+    background-image: url('https://assets.ccbp.in/frontend/react-js/profile-bg.png');
+    height: 28vh;
+    width: 60vw;
+    margin: 10px;
+    padding-left: 20px;
+    border-radius: 5px;
+  }
+  .section-11 {
+    width: 90%;
+  }
+  .ul-job-items-container {
+    width: 90%;
+  }
+  .background {
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+  .job-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+  .search-input {
+    height: 30px;
+    width: 260px;
+    padding-right: 10px;
+  }
+
+  .list-item {
+    list-style-type: none;
+  }
+
+  .name {
+    font-size: 20px;
+    color: blue;
+  }
+  .paragraph {
+    font-size: 15px;
+    color: gray;
+  }
+
+  .heading-sub {
+    font-size: 20px;
+  }
+
+  .margin {
+    margin-top: 10px;
+  }
+
+  .section-22 {
+    display: none;
+  }
+}

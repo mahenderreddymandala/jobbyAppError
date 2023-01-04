@@ -11,7 +11,7 @@ const Home = () => {
     <div className="home-section">
       <Header />
       <h1 className="h-heading">Find The Job That Fits Your Life</h1>
-      <p className="paragraph">
+      <p className="paragraphs">
         Millions of people are searching for jobs, salary information, company
         reviews. Find the job that fits your abilities and potential.
       </p>

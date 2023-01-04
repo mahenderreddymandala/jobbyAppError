@@ -7,8 +7,6 @@ import {Component} from 'react'
 
 import Cookies from 'js-cookie'
 
-import Header from '../Header'
-
 import './index.css'
 
 const ApiStatus = {
@@ -22,6 +20,9 @@ class JobItemDetails extends Component {
   state = {
     status: ApiStatus.initial,
     jobsData: '',
+    skills: [],
+    lifeAtCompanies: '',
+    similarJobs: [],
   }
 
   componentDidMount() {
@@ -49,7 +50,7 @@ class JobItemDetails extends Component {
     const data = await response.json()
 
     if (response.ok === true) {
-      console.log(data.job_details.title)
+      //  console.log(data)
 
       const updatedData = {
         companyLogoUrl: data.job_details.company_logo_url,
@@ -61,17 +62,35 @@ class JobItemDetails extends Component {
         location: data.job_details.location,
         packagePerAnnum: data.job_details.package_per_annum,
         rating: data.job_details.rating,
-        skills: data.job_details.skills,
-        lifeAtCompany: data.job_details.life_at_company,
-        similarJobs: data.similar_jobs,
-        title: data.job_details.title,
       }
       // console.log(updatedData)
+      const skill = data.job_details.skills.map(each => ({
+        skillimageUrl: each.image_url,
+        skillname: each.name,
+      }))
+      console.log(skill)
 
+      const lifeAtCompany = {
+        lifedescription: data.job_details.life_at_company.description,
+        lifeimageUrl: data.job_details.life_at_company.image_url,
+      }
+      // console.log(lifeAtCompany)
+
+      const similarJob = data.similar_jobs.map(each => ({
+        ScompanyLogoUrl: each.company_logo_url,
+        SemploymentType: each.employment_type,
+        Sid: each.id,
+        SjobDescription: each.job_description,
+        Sloaction: each.location,
+        Srating: each.rating,
+        Stitle: each.title,
+      }))
       this.setState({
         status: ApiStatus.success,
-
+        similarJobs: similarJob,
+        lifeAtCompanies: lifeAtCompany,
         jobsData: updatedData,
+        skills: skill,
       })
     } else {
       this.setState({status: ApiStatus.failure})
@@ -85,109 +104,99 @@ class JobItemDetails extends Component {
   )
 
   renderJobSuccess = () => {
-    const {jobsData} = this.state
+    const {jobsData, skills, lifeAtCompanies, similarJobs} = this.state
+    const {skillimageUrl, skillname} = skills
+    console.log(skills)
+    //  console.log(lifeAtCompanies)
+    console.log(similarJobs)
+
+    const {lifedescription, lifeimageUrl} = lifeAtCompanies
+    const {
+      ScompanyLogoUrl,
+      SemploymentType,
+      SjobDescription,
+      Slocation,
+      SpackagePerAnnum,
+      Srating,
+      Stitle,
+    } = similarJobs
 
     const {
       companyLogoUrl,
-      companyWebsiteUrl,
       employmentType,
       jobDescription,
       location,
       packagePerAnnum,
       rating,
       title,
-      skills,
-      lifeAtCompany,
-      similarJobs,
     } = jobsData
-    console.log(companyWebsiteUrl)
 
     return (
-      <div className="black-section">
-        <div className="jobs-container-sections">
+      <div className="jobs-container-sections">
+        <div className="image">
+          <img src={companyLogoUrl} alt={title} className="image-2" />
+
+          <div className="para">
+            <h1 className="title">{title}</h1>
+            <div className="star">
+              <AiFillStar className="stars" />
+              <p className="rating">{rating}</p>
+            </div>
+          </div>
+        </div>
+        <div className="p-h">
+          <div className="h-section">
+            <HiLocationMarker className="stars" />
+            <p className="location">{location}</p>
+            <BsFillBagFill className="stars" />
+            <p className="type">{employmentType}</p>
+          </div>
+          <div>
+            <h1 className="package">{packagePerAnnum}</h1>
+          </div>
+        </div>
+        <hr />
+        <h1>Description</h1>
+        <p className="job-des">{jobDescription}</p>
+        <div className="skills-section">
+          <h1 className="head-sub">Skills</h1>
+
+          <img src={skillimageUrl} alt={skillname} className="skills-name" />
+
+          <h1 className="name-skills">{skillname}</h1>
+        </div>
+        <div className="life">
+          <h1 className="head-sub">Life at Company</h1>
+
+          <p>{lifedescription}</p>
+          <img src={lifeimageUrl} alt="url" className="url" />
+        </div>
+        <div className="similar-jobs">
           <div className="image">
-            <img src={companyLogoUrl} alt={title} />
+            <img src={ScompanyLogoUrl} alt={Stitle} className="image-2" />
 
             <div className="para">
-              <h1 className="title">{title}</h1>
+              <h1 className="title">{Stitle}</h1>
               <div className="star">
-                <AiFillStar className="starss" />
-                <p className="rating">{rating}</p>
+                <AiFillStar className="stars" />
+                <p className="rating">{Srating}</p>
               </div>
             </div>
           </div>
           <div className="p-h">
             <div className="h-section">
               <HiLocationMarker className="stars" />
-              <p className="location">{location}</p>
+              <p className="location">{Slocation}</p>
               <BsFillBagFill className="stars" />
-              <p className="type">{employmentType}</p>
+              <p className="type">{SemploymentType}</p>
             </div>
             <div>
-              <h1 className="package">{packagePerAnnum}</h1>
+              <h1 className="package">{SpackagePerAnnum}</h1>
             </div>
           </div>
           <hr />
-          <div className="company-logos">
-            <h1>Description</h1>
-            <img src={companyWebsiteUrl} alt="company" className="company" />
-          </div>
-          <p className="job-des">{jobDescription}</p>
-          <h1 className="head-sub">Skills</h1>
-
-          <div className="skills-section">
-            {skills.map(each => (
-              <li key={each.name} className="list-item-sections">
-                <img
-                  src={each.image_url}
-                  alt={each.name}
-                  className="skills-name"
-                />
-
-                <p className="name-skills">{each.name}</p>
-              </li>
-            ))}
-          </div>
-          <h1 className="head-sub">Life at Company</h1>
-          <div className="life">
-            <p className="life-description">{lifeAtCompany.description}</p>
-            <img src={lifeAtCompany.image_url} alt="url" className="url" />
-          </div>
-          <div className="lifes">
-            <p className="life-description">{lifeAtCompany.description}</p>
-            <img src={lifeAtCompany.image_url} alt="url" className="url" />
-          </div>
-        </div>
-        <div className="similar-jobs">
-          {similarJobs.map(each => (
-            <li key={each.id} className="list-item-section">
-              <div className="image">
-                <img
-                  src={each.company_logo_url}
-                  alt={each.title}
-                  className="image-2"
-                />
-
-                <div className="para">
-                  <h1 className="title">{each.title}</h1>
-                  <div className="star">
-                    <AiFillStar className="starss" />
-                    <p className="rating">{each.rating}</p>
-                  </div>
-                </div>
-              </div>
-              <h1>Description</h1>
-              <p className="job-des">{each.job_description}</p>
-              <div className="p-h">
-                <div className="h-section">
-                  <HiLocationMarker className="stars" />
-                  <p className="location">{each.location}</p>
-                  <BsFillBagFill className="stars" />
-                  <p className="type">{each.employment_type}</p>
-                </div>
-              </div>
-            </li>
-          ))}
+          <h1>SDescription</h1>
+          <p className="job-des">{SjobDescription}</p>
         </div>
       </div>
     )
@@ -223,12 +232,7 @@ class JobItemDetails extends Component {
   }
 
   render() {
-    return (
-      <div className="background">
-        <Header />
-        <div>{this.renderJobItemDetails()}</div>
-      </div>
-    )
+    return <div>{this.renderJobItemDetails()}</div>
   }
 }
 

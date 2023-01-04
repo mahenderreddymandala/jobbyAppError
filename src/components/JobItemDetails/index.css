@@ -1,0 +1,258 @@
+@media (min-width: 768px) {
+  .jobs-container-sections {
+    background-color: #272727;
+    color: #ffffff;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .life {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .life-description {
+    width: 60%;
+  }
+
+  .url {
+    width: 30%;
+  }
+
+  .black-section {
+    background-color: #000000;
+  }
+
+  .image {
+    display: flex;
+    flex-direction: row;
+  }
+  .star {
+    display: flex;
+    flex-direction: row;
+  }
+  .para {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+  }
+
+  .stars {
+    margin-top: 20px;
+    margin-right: 10px;
+  }
+  .title {
+    font-size: 25px;
+  }
+
+  .h-section {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .location {
+    margin-right: 15px;
+  }
+
+  .p-h {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .similar-jobs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: #ffffff;
+  }
+  .list-item-section {
+    list-style-type: none;
+    width: 40%;
+    margin: 20px;
+    background-color: #272727;
+    border-radius: 10px;
+    padding-left: 15px;
+  }
+
+  .list-item-sections {
+    list-style-type: none;
+    width: 25%;
+    margin: 20px;
+    background-color: #272727;
+    border-radius: 10px;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .skills-section {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .name-skills {
+    margin-left: 15px;
+  }
+  .image-2 {
+    height: 25%;
+    width: 20%;
+    margin-top: 20px;
+  }
+  .image-3 {
+    height: 200px;
+    width: 200px;
+  }
+
+  .starss {
+    margin-top: 23px;
+    margin-right: 10px;
+    color: #fbbf24;
+    height: 25px;
+    width: 25px;
+  }
+  . .lifes {
+    display: none;
+  }
+
+  .rating {
+    font-size: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .jobs-container-sections {
+    background-color: #272727;
+    color: #ffffff;
+    border-radius: 10px;
+    margin: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .title {
+    font-size: 15px;
+  }
+  .life {
+    display: none;
+  }
+
+  .lifes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .life-description {
+    width: 95%;
+  }
+
+  .url {
+    width: 95%;
+  }
+
+  .black-section {
+    background-color: #000000;
+  }
+
+  .image {
+    display: flex;
+    flex-direction: row;
+  }
+  .star {
+    display: flex;
+    flex-direction: row;
+  }
+  .para {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+  }
+
+  .stars {
+    margin-top: 20px;
+    margin-right: 10px;
+  }
+
+  .h-section {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .location {
+    margin-right: 15px;
+  }
+
+  .p-h {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 90%;
+  }
+
+  .similar-jobs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: #ffffff;
+  }
+  .list-item-section {
+    list-style-type: none;
+    width: 90%;
+    margin: 20px;
+    background-color: #272727;
+    border-radius: 10px;
+    padding-left: 15px;
+  }
+
+  .list-item-sections {
+    list-style-type: none;
+    width: 25%;
+    margin: 20px;
+    background-color: #272727;
+    border-radius: 10px;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .skills-section {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .name-skills {
+    margin-left: 15px;
+  }
+  .image-2 {
+    height: 25%;
+    width: 20%;
+    margin-top: 20px;
+  }
+  .image-3 {
+    height: 200px;
+    width: 200px;
+  }
+
+  .starss {
+    margin-top: 23px;
+    margin-right: 10px;
+    color: #fbbf24;
+    height: 25px;
+    width: 25px;
+  }
+
+  .rating {
+    font-size: 20px;
+  }
+
+  .black-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .package {
+    font-size: 15px;
+  }
+}

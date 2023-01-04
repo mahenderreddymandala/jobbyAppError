@@ -7,6 +7,11 @@ class Login extends Component {
   state = {
     username: '',
     password: '',
+    text: '',
+  }
+
+  onFailure = errMsg => {
+    this.setState({text: errMsg})
   }
 
   onSubmitSuccess = jwtToken => {
@@ -32,6 +37,8 @@ class Login extends Component {
     console.log(response)
     if (response.ok === true) {
       this.onSubmitSuccess(data.jwt_token)
+    } else {
+      this.onFailure(data.error_msg)
     }
   }
 
@@ -92,7 +99,7 @@ class Login extends Component {
   }
 
   render() {
-    const {username, password} = this.state
+    const {username, password, text} = this.state
     console.log(username)
     console.log(password)
     return (
@@ -107,10 +114,11 @@ class Login extends Component {
             <div>{this.renderUsername()}</div>
             <div>{this.renderPassword()}</div>
             <div className="button-class">
-              <button className="btn-style" type="submit">
+              <button className="btn-styles" type="submit">
                 Login
               </button>
             </div>
+            <p className="error">{text}</p>
           </form>
         </div>
       </div>
