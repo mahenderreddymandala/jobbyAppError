@@ -15,14 +15,16 @@ const Header = props => {
   }
 
   return (
-    <div className="header-section">
+    <ul className="header-section">
       <div className="big-screen">
         <div>
-          <img
-            src="https://assets.ccbp.in/frontend/react-js/logo-img.png "
-            alt="website logo"
-            className="logo-el"
-          />
+          <Link to="/" className="link-item">
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/logo-img.png "
+              alt="website logo"
+              className="logo-el"
+            />
+          </Link>
         </div>
 
         <div className="home-jobs">
@@ -41,11 +43,13 @@ const Header = props => {
       </div>
       <div className="small-screen">
         <div>
-          <img
-            src="https://assets.ccbp.in/frontend/react-js/logo-img.png "
-            alt="website logo"
-            className="logo-el"
-          />
+          <Link to="/" className="link-item">
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/logo-img.png "
+              alt="website logo"
+              className="logo-el"
+            />
+          </Link>
         </div>
 
         <div className="home-jobs">
@@ -62,7 +66,7 @@ const Header = props => {
           </button>
         </div>
       </div>
-    </div>
+    </ul>
   )
 }
 

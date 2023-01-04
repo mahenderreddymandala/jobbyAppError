@@ -106,7 +106,7 @@ class JobItemDetails extends Component {
       <div className="black-section">
         <div className="jobs-container-sections">
           <div className="image">
-            <img src={companyLogoUrl} alt={title} />
+            <img src={companyLogoUrl} alt="job details company logo" />
 
             <div className="para">
               <h1 className="title">{title}</h1>
@@ -130,7 +130,9 @@ class JobItemDetails extends Component {
           <hr />
           <div className="company-logos">
             <h1>Description</h1>
-            <img src={companyWebsiteUrl} alt="company" className="company" />
+            <a href={companyWebsiteUrl} alt="company">
+              Visit
+            </a>
           </div>
           <p className="job-des">{jobDescription}</p>
           <h1 className="head-sub">Skills</h1>
@@ -151,20 +153,26 @@ class JobItemDetails extends Component {
           <h1 className="head-sub">Life at Company</h1>
           <div className="life">
             <p className="life-description">{lifeAtCompany.description}</p>
-            <img src={lifeAtCompany.image_url} alt="url" className="url" />
+            <img
+              src={lifeAtCompany.image_url}
+              alt="life at company"
+              className="url"
+            />
           </div>
           <div className="lifes">
             <p className="life-description">{lifeAtCompany.description}</p>
             <img src={lifeAtCompany.image_url} alt="url" className="url" />
           </div>
         </div>
+        <h1 className="head-sub">Similar Jobs</h1>
+
         <div className="similar-jobs">
           {similarJobs.map(each => (
             <li key={each.id} className="list-item-section">
               <div className="image">
                 <img
                   src={each.company_logo_url}
-                  alt={each.title}
+                  alt="similar job company logo"
                   className="image-2"
                 />
 

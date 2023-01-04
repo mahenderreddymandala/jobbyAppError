@@ -23,7 +23,7 @@ const JobItem = props => {
     <Link to={`jobs/${id}`} className="link-item">
       <div className="jobs-container-section">
         <div className="image">
-          <img src={companyLogoUrl} alt={title} className="image-2" />
+          <img src={companyLogoUrl} alt="company logo" className="image-2" />
 
           <div className="para">
             <h1 className="title">{title}</h1>

@@ -242,7 +242,7 @@ class Jobs extends Component {
           className="nojobs-image"
         />
         <h1 className="no-jobs">No Jobs Found</h1>
-        <p className="no">We could not find ant jobs.Try other filters</p>
+        <p className="no">We could not find any jobs. Try other filters</p>
       </ul>
     ) : (
       <ul className="ul-job-items-container">

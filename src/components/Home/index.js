@@ -1,10 +1,15 @@
+import {Redirect, Link} from 'react-router-dom'
+
+import Cookies from 'js-cookie'
+
 import './index.css'
 
 import Header from '../Header'
 
 const Home = () => {
-  const onclickFind = () => {
-    console.log('hi')
+  const jwtToken = Cookies.get('jwt_token')
+  if (jwtToken === undefined) {
+    return <Redirect to="/login" />
   }
 
   return (
@@ -15,9 +20,11 @@ const Home = () => {
         Millions of people are searching for jobs, salary information, company
         reviews. Find the job that fits your abilities and potential.
       </p>
-      <button type="button" className="button-style" onClick={onclickFind}>
-        Find Jobs
-      </button>
+      <Link to="/jobs" className="link-item">
+        <button type="button" className="button-style" testid="searchButton">
+          Find Jobs
+        </button>
+      </Link>
     </div>
   )
 }
